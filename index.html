@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The State of CX | Análisis Estratégico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --g-orange: #FF4F1F;
+            --g-blue: #002F6C;
+            --g-charcoal: #2D2D2D;
+            --g-light: #F4F4F4;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            color: var(--g-charcoal);
+            background-color: var(--g-light);
+            /* Relieve Genesys */
+            background-image: 
+                linear-gradient(30deg, #eeeeee 12%, transparent 12.5%, transparent 87%, #eeeeee 87.5%, #eeeeee),
+                linear-gradient(150deg, #eeeeee 12%, transparent 12.5%, transparent 87%, #eeeeee 87.5%, #eeeeee),
+                linear-gradient(60deg, #f5f5f5 25%, transparent 25.5%, transparent 75%, #f5f5f5 75.5%, #f5f5f5);
+            background-size: 80px 140px;
+        }
+
+        /* Hero Narrative */
+        .hero {
+            background: linear-gradient(135deg, var(--g-blue) 0%, #001a3d 100%);
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 8px solid var(--g-orange);
+        }
+
+        .hero h2 { font-weight: 300; font-size: 2.2rem; max-width: 900px; margin: 0 auto; }
+        .hero b { color: var(--g-orange); font-weight: 700; }
+
+        .container { max-width: 1200px; margin: -40px auto 0; padding: 0 20px 100px; }
+
+        .main-card {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            border-radius: 4px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        /* Video Section */
+        .video-box {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+            margin: 40px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Grid System */
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .chart-card {
+            background: var(--white);
+            padding: 30px;
+            border: 1px solid #efefef;
+            transition: transform 0.3s ease;
+        }
+
+        .chart-card:hover { transform: translateY(-5px); border-color: var(--g-orange); }
+
+        .chart-card h4 {
+            margin-top: 0;
+            color: var(--g-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+
+        .stat-highlight {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--g-orange);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .section-break {
+            grid-column: span 2;
+            background: var(--g-light);
+            padding: 20px;
+            text-align: center;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--g-blue);
+            margin: 40px 0 10px;
+        }
+
+        /* Footer Button */
+        .btn-cta {
+            display: inline-block;
+            background: var(--g-orange);
+            color: var(--white);
+            padding: 22px 60px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 60px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s ease;
+        }
+
+        .btn-cta:hover { background: var(--g-blue); transform: scale(1.05); }
+
+        @media (max-width: 850px) {
+            .data-grid { grid-template-columns: 1fr; }
+            .section-break { grid-column: span 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <h2>"Solo el <b>11%</b> de los clientes recibe un servicio excelente. <br>Cerrar la brecha de expectativa es la prioridad #1."</h2>
+    </div>
+
+    <div class="container">
+        <div class="main-card">
+            <div class="header-top">
+                <img src="logo.png" alt="Genesys" style="height: 25px;">
+                <span style="font-weight: 300; letter-spacing: 1px;">REPORTE GLOBAL 2024</span>
+            </div>
+
+            <h1 style="font-size: 2.8rem; margin: 0; line-height: 1.1;">The State of <span style="color: var(--g-orange);">Customer Experience</span></h1>
+            <p style="font-size: 1.2rem; color: #666; max-width: 700px;">Análisis de la orquestación de experiencias, IA y las nuevas demandas del consumidor moderno.</p>
+
+            <div class="video-box">
+                <iframe src="https://www.youtube.com/embed/GRIiShBDhGE?si=0LpMRX_X7GacrXLG" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <div class="data-grid">
+                
+                <div class="section-break">La Voz del Consumidor</div>
+
+                <div class="chart-wrapper chart-card">
+                    <h4>Consistencia del Servicio</h4>
+                    <canvas id="realityChart"></canvas>
+                    <p><small>El 49% describe la calidad como mixta o inconsistente.</small></p>
+                </div>
+
+                <div class="chart-wrapper chart-card">
+                    <h4>Valor de la Marca</h4>
+                    <span class="stat-highlight">82%</span>
+                    <p>de los consumidores afirma que una empresa es tan buena como el servicio que ofrece.</p>
+                </div>
+
+                <div class="chart-wrapper chart-card">
+                    <h4>Satisfacción por Canal</h4>
+                    <canvas id="channelSatChart"></canvas>
+                    <p><small>Videochat (41%) y Voz (40%) lideran la satisfacción.</small></p>
+                </div>
+
+                <div class="chart-wrapper chart-card">
+                    <h4>El Dolor de la Omnicanalidad</h4>
+                    <span class="stat-highlight">97%</span>
+                    <p>considera crítico moverse entre canales sin repetir información.</p>
+                </div>
+
+                <div class="section-break">Tecnología y Estrategia (IA & BOTS)</div>
+
+                <div class="chart-wrapper chart-card">
+                    <h4>Capacidades de los Bots</h4>
+                    <canvas id="botCapabilitiesChart"></canvas>
+                </div>
+
+                <div class="chart-wrapper chart-card">
+                    <h4>El Papel de la IA</h4>
+                    <span class="stat-highlight">64%</span>
+                    <p>cree que la IA mejorará la calidad y velocidad del servicio en los próximos 2 años.</p>
+                </div>
+
+                <div class="section-break">El Costo de la Inacción</div>
+
+                <div class="chart-wrapper chart-card">
+                    <h4>Riesgo de Deserción</h4>
+                    <canvas id="churnChart"></canvas>
+                    <p><small>El 53% abandonará su marca favorita tras 2-5 malas experiencias.</small></p>
+                </div>
+
+                <div class="chart-wrapper chart-card">
+                    <h4>Motor de Lealtad</h4>
+                    <span class="stat-highlight">3 de 4</span>
+                    <p>pagarían más por experiencias altamente personalizadas.</p>
+                </div>
+
+            </div>
+
+            <div style="text-align: center;">
+                <a href="The-State-of-Customer-Experience-1.pdf" download class="btn-cta">Descargar Reporte Completo (PDF)</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        Chart.defaults.font.family = 'Roboto';
+        Chart.defaults.color = '#2D2D2D';
+
+        // Gráfico Reality: Consistencia
+        new Chart(document.getElementById('realityChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Excelente', 'Inconsistente', 'Pobre/Mala'],
+                datasets: [{
+                    data: [11, 49, 40],
+                    backgroundColor: ['#FF4F1F', '#002F6C', '#dddddd'],
+                    borderWidth: 0
+                }]
+            },
+            options: { cutout: '70%' }
+        });
+
+        // Gráfico Canales (De tus imágenes)
+        new Chart(document.getElementById('channelSatChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Videochat', 'Voz', 'Chat', 'Email', 'Web'],
+                datasets: [{
+                    label: '% Satisfacción Alta',
+                    data: [41, 40, 36, 30, 25],
+                    backgroundColor: '#002F6C'
+                }]
+            },
+            options: { plugins: { legend: { display: false } } }
+        });
+
+        // Gráfico Bots (De tus imágenes)
+        new Chart(document.getElementById('botCapabilitiesChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Uso IA/ML', 'Triage Auto', 'Sentimiento', 'Resolución'],
+                datasets: [{
+                    label: '% Implementación',
+                    data: [93, 91, 88, 86],
+                    backgroundColor: '#FF4F1F'
+                }]
+            },
+            options: { indexAxis: 'y', plugins: { legend: { display: false } } }
+        });
+
+        // Gráfico Churn
+        new Chart(document.getElementById('churnChart'), {
+            type: 'line',
+            data: {
+                labels: ['1 Mala Exp.', '2-5 Malas Exp.', 'Más de 5'],
+                datasets: [{
+                    label: '% Abandono',
+                    data: [8, 53, 39],
+                    borderColor: '#FF4F1F',
+                    backgroundColor: 'rgba(255, 79, 31, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            }
+        });
+    </script>
+</body>
+</html>
